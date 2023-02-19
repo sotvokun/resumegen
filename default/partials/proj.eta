@@ -1,0 +1,19 @@
+<div class="block proj">
+  <div class="head">
+    <h3><%= it.name %></h3>
+    <% if (it.url) { %>
+      <span><a href="<%= it.url %>"><%= it.url %></a></span>
+    <% } %>
+  </div>
+  <div class="body">
+    <% if (typeof it.content === 'string') { %>
+      <p><%= it.content %></p>
+    <% } else if (typeof it.content === 'object') { %>
+      <ul>
+        <% it.content.forEach(line => { %>
+          <li><%= line %>
+        <% }) %>
+      </ul>
+    <% }%>
+  </div>
+</div>

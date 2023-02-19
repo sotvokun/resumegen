@@ -1,0 +1,6 @@
+<% const isHyperLink = /^(?:http|https)\:\/\/.*$/.test(it) %>
+<%if (isHyperLink) { %>
+  <span><a href="<%= it %>"><%= it %></a></span>
+<% } else { %>
+  <span><%= it %></span>
+<% } %>

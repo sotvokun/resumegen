@@ -1,0 +1,55 @@
+_name: Exa Example
+
+_contact:
+  E-Mail: exa@example.com
+  Phone: 123-456-7890
+  LinkedIn: linkedin.com/in/exa_example
+
+Educations@edu:
+  University of Maryland:
+    - degree: Master of Computer Science
+      date: September 1996 - May 2001
+      content:
+        - Graduated Summa Cum Laude
+        - Member of Student Association of Computer Science
+        - Managed a student project to organize a conference for 50+ professionals
+
+Expierences@work:
+  Seton Hospital:
+    - September 2004 - Present
+    - role: Senior Project Manager
+      content:
+      - Oversaw all major hospital IT projects for 10+ years <br/>
+      - Responsible for creating, improving, and developing IT project strategies. <br/>
+      - Implemented the highly successful Lean Training and Six Sigma projects for all employees. Cut costs by 32% in less than six months.<br/>
+    - role: Junior Project Manager
+      content:
+      - Streamlined IT logistics and administration operation cutting costs by 25%.
+      - Diagnosed problems with hardware and operating systems and implemented new solutions.
+      - Maintained the user database of over 30000 patients.
+
+Skills:
+  Business Process Improvement:
+    content: |
+      history of successful innovations leading to cost sawings.
+  Vendor Management:
+    content: |
+      managing vendors in projects with budget over $1000000.
+  Project Scheduling:
+    content: |
+      over 90% of projects led were finished in due time.
+  Sales Analysis:
+    content: |
+      background in IT Sales with deep understanding of negootiating contracts
+
+Projects@proj:
+  PIHSystem:
+    url: https://exa.example.com/PIHSys
+    content: |
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+Others:
+  Awards:
+    content: Employee of the month, May 2005
+  Certifications:
+    content: Certified Construction Manager (CCM) 2008
