@@ -7,10 +7,30 @@ You can make your own template to make your resume looks different.
 ## Requirements
 - Deno (https://deno.land)
 
+## Usage
+```
+resumegen.ts [options] <yaml>
+
+OPTIONS:
+  --template, -t <path>           specify the template to generate resume
+                                  (DEFAULT: default.eta)
+  --output, -o <path>             specify the output file basename.
+                                  (DEFAULT: same with the input yaml file)
+```
+
+To generate your resume with default template:
+
+`> deno run -A ./index.ts <your_yaml_file>`
+
+**NOTE:** There is no result if the generation is success.
+
 ## Write your resume
 > See more in the example
 
 WIP
+
+## Custom Template
+resumegen use `eta` as its template engine. Learn more about it in https://eta.js.org/.
 
 ## Convertingto PDF
 The easiest way to convert HTML to PDF is using the web browser built-in print function, because
