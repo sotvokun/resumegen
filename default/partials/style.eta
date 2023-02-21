@@ -78,6 +78,10 @@
     margin-bottom: 0.7rem;
   }
 
+  .block.proj {
+    margin-bottom: 0.7rem;
+  }
+
   .block {
     margin-bottom: 0.3rem;
   }
