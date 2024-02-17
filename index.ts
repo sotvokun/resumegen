@@ -64,8 +64,8 @@ async function main(args: string[]) {
   }
 
   const templateFilePath = expandPath(parsedArgs['template'] ?? parsedArgs['t'] ?? RUNTIME_PATH + '/default.eta');
-  const templateDirPath = PathModule.parse(templateFilePath!).dir;
-  loadPartials(templateDirPath);
+  const templateParsedPath = PathModule.parse(templateFilePath!);
+  loadPartials(PathModule.join(templateParsedPath.dir, templateParsedPath.name));
 
   const resumeYamlFilePath = parsedArgs._[0] as string;
 
