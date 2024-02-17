@@ -5,13 +5,14 @@ import { posix, win32 } from 'https://deno.land/std@0.177.0/path/mod.ts';
 import { ensureFileSync, expandGlobSync } from 'https://deno.land/std@0.177.0/fs/mod.ts';
 
 const HELP_INFO = `
-resumegen.ts [options] <yaml>
+resumegen.ts <yaml> [options]
 
 OPTIONS:
   --template, -t <path>           specify the template to generate resume
                                   (DEFAULT: default.eta)
   --output, -o <path>             specify the output file basename.
                                   (DEFAULT: same with the input yaml file)
+  --dry, -D                       dry run, do not write to file
 
 CUSTOMIZE TEMPLATE:
   resumegen uses \`eta\` as its template engine. you can lern it at
@@ -75,6 +76,10 @@ async function main(args: string[]) {
     const yamlData = Yaml.parse(yamlContent) as Record<string, unknown>;
 
     const outputContent = (await Eta.renderFileAsync(templateFilePath!, yamlData)).split('\n').map(ln => ln.trim()).join('');
+
+    if (parsedArgs['dry'] || parsedArgs['D']) {
+      return;
+    }
 
     ensureFileSync(outputHtmlFilePath);
     Deno.writeTextFileSync(outputHtmlFilePath, outputContent);
