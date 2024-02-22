@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -14430,8 +14431,8 @@ Options:
   --template-extension <ext>        File extension for the template files
                                     (DEFAULT: .eta)
 
-  -h, --help              Show this message
-  --dry                   Print the build result without writing to file
+  -h, --help                        Show this message
+  --dry                             Print the build result without writing to file
 `;
 function printHelp() {
   console.log(HELP_MESSAGE.trim());
