@@ -1,0 +1,41 @@
+{
+  "name": "resumegen",
+  "version": "3.0.0",
+  "description": "A resume builder",
+  "main": "dist/index.js",
+  "type": "module",
+  "files": [
+    "dist/*",
+    "!.cache/*"
+  ],
+  "directories": {
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sotvokun/resumegen.git"
+  },
+  "scripts": {
+    "bundle": "esbuild ./.cache/index.js --bundle --format=esm --platform=node --outfile=dist/index.js",
+    "build": "tsc",
+    "assets": "node -e \"require('fs').cpSync('./templates', 'dist/templates', {recursive: true})\"",
+    "make": "npm run build && npm run bundle && npm run assets"
+  },
+  "bin": {
+    "resumegen": "build/index.js"
+  },
+  "author": "Junchen Du <sotvokun@outlook.com>",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/minimist": "^1.2.5",
+    "@types/node": "^20.11.19",
+    "esbuild": "^0.20.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "eta": "^3.2.0",
+    "glob": "^10.3.10",
+    "minimist": "^1.2.8",
+    "yaml": "^2.3.4"
+  }
+}

@@ -1,0 +1,66 @@
+<% layout('layout') %>
+
+<header>
+  <div>
+    <h1 class="name"><%= it._name %></h1>
+    <ul class="contacts">
+      <% Object.keys(it._contact).forEach(field => { %>
+        <% if (/^[\w\d]+[\w\d\-\.]*\@[\w\d\-\.]+\.\w{2,4}$/.test(it._contact[field])) { %>
+        <li><%= field %>:<a href="mailto:<%= it._contact[field] %>"><%= it._contact[field] %></a></li>
+        <% } else { %>
+        <li><%= field %>:<%= it._contact[field] %></li>
+        <% } %>
+      <% }) %>
+    </ul>
+  </div>
+  <% if (it._portrait) { %>
+    <div class="portrait">
+      <img src="<%~ it._portrait %>"></img>
+    </div>
+  <% } %>
+</header>
+<main>
+  <% Object.keys(it).filter(item => item[0] != '_').forEach(sectionField => { %>
+    <% const section = it[sectionField] %>
+    <% const sectionHeadComponents = sectionField.split('@') %>
+    <% const sectionHead = sectionHeadComponents[0] %>
+    <% const sectionType = sectionHeadComponents[1] ?? '' %>
+    <section class="<%= sectionHead.toLowerCase() %>">
+      <h2 class="title"><%= sectionHead %></h2>
+      <% Object.keys(section).forEach(itemField => { %>
+        <% const itemName = itemField %>
+        <% const item = section[itemField] %>
+
+        <%/* Iterate items under section */%>
+        <% if (sectionType === 'edu') { %>
+          <% item.forEach(detail => { %>
+            <% Object.assign(detail, { name: itemName }) %>
+            <%~ include('@edu', detail) %>
+          <% }) %>
+
+        <% } else if (sectionType === 'work') { %>
+          <% const data = Object.assign({ name: itemName }, { detail: item })%>
+          <%~ include('@work', data)  %>
+
+        <% } else if (sectionType === 'proj') { %>
+          <%~ include('@proj', Object.assign({ name: itemName }, item)) %>
+
+        <% } else { %>
+          <div class="block normal">
+            <p>
+              <span class="title"><%= itemName %>: </span>
+              <span class="content">
+                <% if (item.content) { %>
+                  <%= item.content %>
+                <% } else { %>
+                  <%~ include('@utilLink', item) %>
+                <% } %>
+              </span>
+            </p>
+          </div>
+        <% } %>
+
+      <% }) %>
+    </section>
+  <% }) %>
+</main>

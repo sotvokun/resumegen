@@ -1,7 +1,0 @@
-{
-    "deno.enable": true,
-    "[html][eta]": {
-        "editor.suggest.insertMode": "replace",
-        "editor.tabSize": 2
-    }
-}

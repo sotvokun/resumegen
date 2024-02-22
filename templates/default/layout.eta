@@ -19,7 +19,7 @@
         flex-direction: column;
       }
     </style>
-    <%~ include('style') %>
+    <%~ include('@style') %>
   </head>
   <body>
     <%~ it.body %>

@@ -1,0 +1,22 @@
+<div class="block edu">
+  <div class="head">
+    <h3><%= it.name %></h3>
+    <% if (it.date) { %>
+      <span><%= it.date %></span>
+    <% } %>
+  </div>
+  <div class="body">
+    <p><%= it.degree %></p>
+    <div>
+      <% if (typeof it.content === 'string') { %>
+        <p><%= it.content %></p>
+      <% } else if (typeof it.content === 'object') { %>
+        <ul>
+          <% it.content.forEach(line => { %>
+            <li><%= line %></li>
+          <% })%>
+        </ul>
+      <% } %>
+    </div>
+  </div>
+</div>

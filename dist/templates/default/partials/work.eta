@@ -1,0 +1,32 @@
+<% const hasMainDate = typeof it.detail[0] === 'string' %>
+<div class="block work">
+  <div class="head">
+    <h3><%= it.name %></h3>
+    <% if (hasMainDate) { %>
+      <span><%= it.detail[0] %></span>
+    <% } %>
+  </div>
+  <div class="body">
+    <% it.detail.slice(hasMainDate).forEach(expr => { %>
+      <div class="block work-expr">
+        <div class="expr-head">
+          <h4><%= expr.role %></h4>
+          <% if (expr.date) { %>
+            <span><%= expr.date %></span>
+          <% } %>
+        </div>
+        <div class="expr-body">
+          <% if (typeof expr.content === 'string') { %>
+            <p><%~ expr.content %></p>
+          <% } else if (typeof expr.content === 'object') { %>
+            <ul>
+              <% expr.content.forEach(line => { %>
+                <li><%~ line %></li>
+              <% }) %>
+            </ul>
+          <% }%>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+</div>

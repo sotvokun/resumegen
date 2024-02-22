@@ -1,0 +1,9 @@
+.DS_Store
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+node_modules/
+.cache/
+
+.env

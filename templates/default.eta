@@ -1,4 +1,4 @@
-<% layout('./default/layout') %>
+<% layout('layout') %>
 
 <header>
   <div>
@@ -35,15 +35,15 @@
         <% if (sectionType === 'edu') { %>
           <% item.forEach(detail => { %>
             <% Object.assign(detail, { name: itemName }) %>
-            <%~ include('edu', detail) %>
+            <%~ include('@edu', detail) %>
           <% }) %>
 
         <% } else if (sectionType === 'work') { %>
           <% const data = Object.assign({ name: itemName }, { detail: item })%>
-          <%~ include('work', data)  %>
+          <%~ include('@work', data)  %>
 
         <% } else if (sectionType === 'proj') { %>
-          <%~ include('proj', Object.assign({ name: itemName }, item)) %>
+          <%~ include('@proj', Object.assign({ name: itemName }, item)) %>
 
         <% } else { %>
           <div class="block normal">
@@ -53,7 +53,7 @@
                 <% if (item.content) { %>
                   <%= item.content %>
                 <% } else { %>
-                  <%~ include('utilLink', item) %>
+                  <%~ include('@utilLink', item) %>
                 <% } %>
               </span>
             </p>
