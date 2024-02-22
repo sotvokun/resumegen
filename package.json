@@ -1,11 +1,12 @@
 {
   "name": "resumegen",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "A resume builder",
   "main": "dist/index.js",
   "type": "module",
   "files": [
     "dist/*",
+    "example/*",
     "!.cache/*"
   ],
   "directories": {
@@ -30,9 +31,7 @@
     "@types/minimist": "^1.2.5",
     "@types/node": "^20.11.19",
     "esbuild": "^0.20.1",
-    "typescript": "^5.3.3"
-  },
-  "dependencies": {
+    "typescript": "^5.3.3",
     "eta": "^3.2.0",
     "glob": "^10.3.10",
     "minimist": "^1.2.8",
