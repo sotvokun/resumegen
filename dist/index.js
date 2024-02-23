@@ -14346,11 +14346,9 @@ function ensureFileSync(filePath, content = "") {
   if (!fs2.existsSync(dirname3)) {
     fs2.mkdirSync(dirname3, { recursive: true });
   }
-  if (!fs2.existsSync(filePath)) {
-    fs2.writeFileSync(filePath, content, {
-      encoding: "utf-8"
-    });
-  }
+  fs2.writeFileSync(filePath, content, {
+    encoding: "utf-8"
+  });
   return filePath;
 }
 function resolvePath2(filePath, baseDir) {

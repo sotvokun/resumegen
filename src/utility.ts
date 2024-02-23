@@ -15,18 +15,17 @@ export function getScriptPath() {
 
 
 /**
-  * Ensure the given file exists, creating it if it doesn't.
+  * Ensure the given file exists,
+  * creating it if it doesn't, writing it if it does
   */
 export function ensureFileSync(filePath: string, content: string = '') {
   const dirname = path.dirname(filePath);
   if (!fs.existsSync(dirname)) {
     fs.mkdirSync(dirname, { recursive: true });
   }
-  if (!fs.existsSync(filePath)) {
-    fs.writeFileSync(filePath, content, {
-      encoding: 'utf-8'
-    });
-  }
+  fs.writeFileSync(filePath, content, {
+    encoding: 'utf-8'
+  });
   return filePath;
 }
 
