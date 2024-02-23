@@ -48,7 +48,7 @@ export function createEngine(
     const fileContent = fs.readFileSync(fullPath, 'utf-8');
     const compiledTemplate = etaInstance.compile(fileContent);
     if (isComponent) {
-      const componentName = '@' + filePath.replace(options.extension, '').split('/').slice(1).join('_');
+      const componentName = '@' + filePath.replace(options.extension, '').split(path.sep).slice(1).join('_');
       etaInstance.loadTemplate(componentName, compiledTemplate);
       loadedTemplates.components.push(componentName);
     } else {

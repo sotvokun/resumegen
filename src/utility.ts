@@ -7,7 +7,10 @@ import * as os from 'node:os';
   * Get the directory of the current script.
   */
 export function getScriptPath() {
-  return path.dirname(new URL(import.meta.url).pathname);
+  const pathUrlPath = new URL(import.meta.url).pathname;
+  return path.dirname(
+    os.platform() === 'win32' ? pathUrlPath.slice(1) : pathUrlPath
+  );
 }
 
 
