@@ -1,3 +1,6 @@
+> [!WARNING]
+> Use Typst, a general typesetting system is better than a domain-specific program
+
 resumegen
 ----------
 Manage your resume with the plain text file, and manage its version with your favorite VCS.
